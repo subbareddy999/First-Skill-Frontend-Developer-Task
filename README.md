@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StreamFlix: Next.js Streaming Dashboard
 
-## Getting Started
+A simplified streaming service dashboard clone built with Next.js 14 (App Router), TypeScript, and Tailwind CSS. This project fetches real-time movie data from **The Movie Database (TMDB) API** and was completed as part of a technical assessment.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Link to your Vercel Deployment Here]
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📋 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Server-Side Rendering (SSR):** Homepage is server-rendered for fast initial loads using Server Components.
+* **Dynamic Routing:** Individual movie detail pages are dynamically generated (e.g., `/movie/[id]`).
+* **External API Integration:** Securely fetches data from the TMDB API on the server.
+* **Optimized Images:** Uses the Next.js `<Image />` component for optimized, responsive images.
+* **Responsive Design:** Fully responsive layout for all components, built with Tailwind CSS.
+* **Modern Tooling:** Built with Next.js 14 App Router, TypeScript, and Tailwind CSS.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **API:** [TMDB (The Movie Database) API](https://www.themoviedb.org/documentation/api)
+* **Linting/Formatting:** ESLint & Prettier
+* **Deployment:** [Vercel](https://vercel.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Local Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To get a local copy up and running, follow these simple steps.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 1. Prerequisites
+
+* [Node.js](https://nodejs.org/) (v18 or later)
+* [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+* **TMDB API Key:** You must have a free API Read Access Token (v3 auth) from [themoviedb.org](https://www.themoviedb.org/).
+
+### 2. Installation & Setup
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/streaming-dashboard.git](https://github.com/your-username/streaming-dashboard.git)
+    cd streaming-dashboard
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+    Create a file named `.env.local` in the root of your project and add your TMDB API key.
+
+    ```.env.local
+    # This key MUST be server-side only
+    TMDB_API_KEY="YOUR_V3_API_READ_ACCESS_TOKEN_HERE"
+    ```
+
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+---
+
+## 🔐 Environment Variables
+
+This project uses a single, critical environment variable:
+
+* `TMDB_API_KEY`: **(Required)** Your v3 API Read Access Token from TMDB. This key is used on the server side to fetch movie data. It must **not** be prefixed with `NEXT_PUBLIC_`.
+
+When deploying to Vercel, this variable must be added to the project's Environment Variables settings to ensure the production build works correctly.
